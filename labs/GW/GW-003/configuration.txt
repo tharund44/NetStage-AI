@@ -1,0 +1,13 @@
+# Captured Configuration / Evidence
+
+R1# show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0         unassigned      YES unset  up                    up
+GigabitEthernet0/0.10      10.10.10.1      YES manual up                    up
+GigabitEthernet0/0.20      10.10.20.1      YES manual up                    up
+GigabitEthernet0/0.30      10.10.30.1      YES manual up                    up
+
+R1# show running-config interface GigabitEthernet0/0.20
+interface GigabitEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 10.10.20.1 255.255.255.240

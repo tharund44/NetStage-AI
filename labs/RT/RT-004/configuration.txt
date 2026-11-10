@@ -1,0 +1,28 @@
+# Captured Configuration / Evidence
+
+R1# show ip ospf neighbor
+(no neighbors found)
+
+R1# show ip ospf interface GigabitEthernet0/0
+GigabitEthernet0/0 is up, line protocol is up
+  Internet Address 10.10.99.1/30, Area 0, Attached via Network Statement
+  Process ID 1, Router ID 1.1.1.1, Network Type BROADCAST, Cost: 1
+  Transmit Delay is 1 sec, State DR, Priority 1
+  Hello 10, Dead 40, Retransmit 5
+
+R2# show ip ospf interface GigabitEthernet0/0
+GigabitEthernet0/0 is up, line protocol is up
+  Internet Address 10.10.99.2/30, Area 1, Attached via Network Statement
+  Process ID 1, Router ID 2.2.2.2, Network Type BROADCAST, Cost: 1
+  Transmit Delay is 1 sec, State DR, Priority 1
+  Hello 10, Dead 40, Retransmit 5
+
+R1# show ip protocols
+Routing Protocol is "ospf 1"
+  Routing for Networks:
+    10.10.99.0 0.0.0.3 area 0
+
+R2# show ip protocols
+Routing Protocol is "ospf 1"
+  Routing for Networks:
+    10.10.99.0 0.0.0.3 area 1

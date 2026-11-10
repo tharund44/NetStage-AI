@@ -1,0 +1,14 @@
+# Captured Configuration / Evidence
+
+R1# show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0         unassigned      YES unset  up                    up
+GigabitEthernet0/0.10      10.10.10.1      YES manual administratively down down
+GigabitEthernet0/0.20      10.10.20.1      YES manual up                    up
+Serial0/0/0                209.165.200.225 YES manual up                    up
+
+R1# show interfaces GigabitEthernet0/0.10
+GigabitEthernet0/0.10 is administratively down, line protocol is down
+  Hardware is iGbE, address is 0019.aa6b.3401
+  Internet address is 10.10.10.1/24
+  Encapsulation 802.1Q Virtual LAN, Vlan ID  10.

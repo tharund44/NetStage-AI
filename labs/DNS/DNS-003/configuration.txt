@@ -1,0 +1,19 @@
+# Captured Configuration / Evidence
+
+R1# show running-config | section dhcp
+ip dhcp pool VLAN10-POOL
+ network 10.10.10.0 255.255.255.0
+ default-router 10.10.10.1
+
+R1# show ip dhcp binding
+IP address       Client-ID/              Lease expiration        Type
+                 Hardware address
+10.10.10.11      0100.1a2b.3c01          Aug 09 2026 08:00 AM    Automatic
+10.10.10.12      0100.1a2b.3c02          Aug 09 2026 08:01 AM    Automatic
+
+C:\> ipconfig /all
+Ethernet adapter Ethernet0:
+   IPv4 Address. . . . . . . . . : 10.10.10.11
+   Subnet Mask . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . : 10.10.10.1
+   DNS Servers . . . . . . . . . :

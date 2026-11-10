@@ -1,0 +1,23 @@
+# Captured Configuration / Evidence
+
+AP1# show dot11 associations
+
+802.11 Client Stations on Dot11Radio0:
+SSID [Guest-WiFi] :
+MAC Address    IP address      Device        Name
+00a0.c9f1.0001 10.10.99.10     PC-Wireless   Guest1
+00a0.c9f1.0002 10.10.99.11     PC-Wireless   Guest2
+00a0.c9f1.0003 10.10.99.12     PC-Wireless   Guest3
+
+AP1# show running-config | section dot11
+interface Dot11Radio0
+ ssid Guest-WiFi
+  vlan 99
+  authentication open
+  guest-mode
+ no peer-to-peer blocking
+ speed basic-1.0 2.0 5.5 11.0
+
+Guest1> ping 10.10.99.11
+Reply from 10.10.99.11: bytes=32 time=3ms TTL=128
+Reply from 10.10.99.11: bytes=32 time=2ms TTL=128

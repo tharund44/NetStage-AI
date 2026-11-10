@@ -1,0 +1,13 @@
+# Captured Configuration / Evidence
+
+R1# show access-lists
+Extended IP access list 140
+    10 deny   icmp 10.10.10.0 0.0.0.255 10.10.30.0 0.0.0.255 (87 matches)
+    20 permit tcp any any (3400 matches)
+    30 permit udp any any (1200 matches)
+    40 permit ip any any (560 matches)
+
+R1# show ip interface GigabitEthernet0/0.10
+GigabitEthernet0/0.10 is up, line protocol is up
+  Ingoing access list is 140
+  Outgoing access list is not set

@@ -1,0 +1,22 @@
+# Captured Configuration / Evidence
+
+R1# show ip route
+Codes: C - connected, S - static, R - RIP, O - OSPF
+
+Gateway of last resort is not set
+
+     10.0.0.0/8 is variably subnetted, 4 subnets
+C       10.10.10.0/24 is directly connected, GigabitEthernet0/0.10
+C       10.10.50.0/30 is directly connected, GigabitEthernet0/1
+C       10.10.99.0/30 is directly connected, Serial0/0/0
+S    172.16.0.0/16 [1/0] via 10.10.99.2
+
+R1# show interfaces GigabitEthernet0/1
+GigabitEthernet0/1 is up, line protocol is up
+  Internet address is 10.10.50.1/30
+  MTU 1500 bytes, BW 1000000 Kbit/sec
+
+R1# show interfaces Serial0/0/0
+Serial0/0/0 is up, line protocol is up
+  Internet address is 10.10.99.1/30
+  MTU 1500 bytes, BW 1544 Kbit/sec

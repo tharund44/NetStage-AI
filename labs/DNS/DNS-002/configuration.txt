@@ -1,0 +1,20 @@
+# Captured Configuration / Evidence
+
+R1# show running-config | section dhcp
+ip dhcp pool VLAN10-POOL
+ network 10.10.10.0 255.255.255.0
+ default-router 10.10.10.1
+ dns-server 10.10.10.5
+
+R1# show access-lists
+Extended IP access list 120
+    10 permit icmp any any (1520 matches)
+    20 permit tcp any any eq 80 (890 matches)
+    30 permit tcp any any eq 443 (672 matches)
+    40 deny   udp any any eq 53 (342 matches)
+    50 permit ip any any (105 matches)
+
+R1# show ip interface GigabitEthernet0/0.10
+GigabitEthernet0/0.10 is up, line protocol is up
+  Ingoing access list is 120
+  Outgoing access list is not set

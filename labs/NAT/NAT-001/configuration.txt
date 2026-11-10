@@ -1,0 +1,28 @@
+# Captured Configuration / Evidence
+
+R1# show ip nat translations
+(no translations found)
+
+R1# show ip nat statistics
+Total active translations: 0
+Outside interfaces: (none)
+Inside interfaces: (none)
+Hits: 0  Misses: 0
+
+R1# show running-config | include nat
+ip nat inside source list 1 interface Serial0/0/0 overload
+access-list 1 permit 10.10.10.0 0.0.0.255
+
+R1# show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0.10      10.10.10.1      YES manual up                    up
+Serial0/0/0                209.165.200.225 YES manual up                    up
+
+R1# show running-config interface GigabitEthernet0/0.10
+interface GigabitEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 10.10.10.1 255.255.255.0
+
+R1# show running-config interface Serial0/0/0
+interface Serial0/0/0
+ ip address 209.165.200.225 255.255.255.252

@@ -1,0 +1,27 @@
+# Captured Configuration / Evidence
+
+SW1# show interfaces Fa0/24 trunk
+Port        Mode         Encapsulation  Status        Native vlan
+Fa0/24      on           802.1q         trunking      1
+
+Port        Vlans allowed on trunk
+Fa0/24      1,10,99
+
+Port        Vlans allowed and active in management domain
+Fa0/24      1,10,99
+
+AP Configuration Summary:
+SSID: Corporate-WiFi
+  VLAN: 10
+  Security: WPA2-Enterprise
+SSID: Guest-WiFi
+  VLAN: 10
+  Security: WPA2-PSK
+
+SW1# show vlan brief
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/22, Fa0/23
+10   Corporate                        active    Fa0/1, Fa0/2, Fa0/3
+99   Guest                            active
+1002 fddi-default                     act/unsup

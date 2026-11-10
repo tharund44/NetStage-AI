@@ -1,0 +1,34 @@
+# Captured Configuration / Evidence
+
+R1# show ip dhcp pool
+
+Pool GUEST-POOL :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0
+ Total addresses                : 254
+ Leased addresses               : 0
+ Pending event                  : none
+ 1 subnet is currently in the pool :
+ Current index        IP address range                    Leased addresses
+ 10.10.99.1           10.10.99.1       - 10.10.99.254    0
+
+R1# show running-config | section dhcp
+ip dhcp pool GUEST-POOL
+ network 10.10.99.0 255.255.255.0
+ default-router 10.10.99.1
+ dns-server 8.8.8.8
+
+SW1# show interfaces Fa0/24 trunk
+Port        Mode         Encapsulation  Status        Native vlan
+Fa0/24      on           802.1q         trunking      1
+
+Port        Vlans allowed on trunk
+Fa0/24      1,10
+
+Port        Vlans allowed and active in management domain
+Fa0/24      1,10
+
+R1# show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0.10      10.10.10.1      YES manual up                    up
+GigabitEthernet0/0.99      10.10.99.1      YES manual up                    up

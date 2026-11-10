@@ -1,0 +1,19 @@
+# Captured Configuration / Evidence
+
+MLS1# show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+Vlan10                     10.10.10.1      YES manual up                    up
+Vlan20                     10.10.20.1      YES manual up                    up
+Vlan30                     10.10.30.2      YES manual up                    up
+FastEthernet0/15           unassigned      YES unset  up                    up
+FastEthernet0/16           unassigned      YES unset  up                    up
+FastEthernet0/17           unassigned      YES unset  up                    up
+FastEthernet0/18           unassigned      YES unset  up                    up
+
+MLS1# show vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+10   Sales                            active    Fa0/1, Fa0/2, Fa0/3
+20   HR                               active    Fa0/6, Fa0/7, Fa0/8
+30   Engineering                      active    Fa0/15, Fa0/16, Fa0/17, Fa0/18

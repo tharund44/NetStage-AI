@@ -1,0 +1,24 @@
+# Captured Configuration / Evidence
+
+R1# show ip nat statistics
+Total active translations: 4
+Peak translations: 4, occurred 14:32:10 ago
+Outside interfaces:
+  Serial0/0/0
+Inside interfaces:
+  GigabitEthernet0/0.10, GigabitEthernet0/0.20
+Hits: 12840  Misses: 312
+Expired translations: 8200
+Dynamic mappings:
+-- Inside Source
+[Id: 1] access-list 10 pool NATPOOL refcount 4
+ pool NATPOOL: netmask 255.255.255.252
+        start 209.165.200.225 end 209.165.200.228
+        type generic, total addresses 4, allocated 4 (100%), misses 312
+
+R1# show ip nat translations
+Pro Inside global       Inside local        Outside local      Outside global
+tcp 209.165.200.225:1024 10.10.10.11:5000   93.184.216.34:80   93.184.216.34:80
+tcp 209.165.200.226:1024 10.10.10.12:5001   93.184.216.34:443  93.184.216.34:443
+tcp 209.165.200.227:1024 10.10.20.15:3000   8.8.8.8:443        8.8.8.8:443
+tcp 209.165.200.228:1024 10.10.20.20:4000   1.1.1.1:80         1.1.1.1:80

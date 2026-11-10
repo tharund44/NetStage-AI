@@ -1,0 +1,27 @@
+# Captured Configuration / Evidence
+
+R1# show ip dhcp pool
+
+Pool VLAN10-POOL :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0
+ Total addresses                : 254
+ Leased addresses               : 15
+ Pending event                  : none
+
+R1# show running-config | section dhcp
+ip dhcp excluded-address 10.10.10.1 10.10.10.10
+ip dhcp pool VLAN10-POOL
+ network 10.10.10.0 255.255.255.0
+ default-router 10.10.10.254
+ dns-server 10.10.10.5
+
+R1# show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0.10      10.10.10.1      YES manual up                    up
+
+C:\> ipconfig
+Ethernet adapter Ethernet0:
+   IPv4 Address. . . . . . . . . : 10.10.10.11
+   Subnet Mask . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . : 10.10.10.254

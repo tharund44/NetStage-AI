@@ -1,0 +1,24 @@
+# Captured Configuration / Evidence
+
+SW2# show vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/22, Fa0/23, Fa0/24
+10   Sales                            active    Fa0/1, Fa0/2, Fa0/3
+20   HR                               active    Fa0/6, Fa0/7, Fa0/8
+1002 fddi-default                     act/unsup
+1003 token-ring-default               act/unsup
+
+SW2# show interfaces Fa0/10 switchport
+Name: Fa0/10
+Switchport: Enabled
+Administrative Mode: static access
+Operational Mode: static access
+Administrative Trunking Encapsulation: dot1q
+Access Mode VLAN: 40 (!)
+Trunking Native Mode VLAN: 1 (default)
+
+SW2# show interfaces Fa0/10 status
+Port      Name    Status       Vlan       Duplex  Speed Type
+Fa0/10            connected    40         a-full  a-100 10/100BaseTX

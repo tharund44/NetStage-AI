@@ -1,0 +1,12 @@
+# Captured Configuration / Evidence
+
+R1# show access-lists
+Extended IP access list 105
+    10 permit ip 10.10.10.0 0.0.0.127 host 10.10.30.5 (520 matches)
+    20 deny   ip any host 10.10.30.5 (340 matches)
+    30 permit ip any any (2800 matches)
+
+R1# show ip interface GigabitEthernet0/0.10
+GigabitEthernet0/0.10 is up, line protocol is up
+  Ingoing access list is 105
+  Outgoing access list is not set

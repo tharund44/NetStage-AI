@@ -1,0 +1,13 @@
+# Captured Configuration / Evidence
+
+R1# show access-lists
+Extended IP access list 130
+    10 permit tcp 10.10.10.0 0.0.0.255 any eq 80 (340 matches)
+    20 permit tcp 10.10.10.0 0.0.0.255 any eq 443 (210 matches)
+    30 permit icmp 10.10.10.0 0.0.0.255 any (90 matches)
+
+R1# show ip interface GigabitEthernet0/0.20
+GigabitEthernet0/0.20 is up, line protocol is up
+  Internet address is 10.10.20.1/24
+  Ingoing access list is 130
+  Outgoing access list is not set

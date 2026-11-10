@@ -1,0 +1,23 @@
+# Captured Configuration / Evidence
+
+R1# show ip ospf neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+2.2.2.2           1   FULL/BDR        00:00:35    10.10.99.2      Gi0/0
+
+R1# show ip route ospf
+(no OSPF routes found)
+
+R2# show ip protocols
+Routing Protocol is "ospf 1"
+  Outgoing update filter list for all interfaces is not set
+  Incoming update filter list for all interfaces is not set
+  Router ID 2.2.2.2
+  Number of areas in this router is 1. 1 normal 0 stub 0 nssa
+  Routing for Networks:
+    10.10.99.0 0.0.0.3 area 0
+
+R2# show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0         10.10.99.2      YES manual up                    up
+GigabitEthernet0/1         172.16.10.1     YES manual up                    up

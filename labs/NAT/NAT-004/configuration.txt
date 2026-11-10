@@ -1,0 +1,24 @@
+# Captured Configuration / Evidence
+
+R1# show ip nat translations
+Pro Inside global       Inside local        Outside local      Outside global
+--- 203.0.113.10        10.10.10.50         ---                ---
+
+R1# show running-config | include nat
+ip nat inside source static 10.10.10.50 203.0.113.10
+
+R1# show access-lists
+Extended IP access list 180
+    10 permit tcp any host 203.0.113.10 eq 80 (0 matches)
+    20 permit tcp any host 203.0.113.10 eq 443 (0 matches)
+    30 deny   ip any any (45 matches)
+
+R1# show ip interface Serial0/0/0
+Serial0/0/0 is up, line protocol is up
+  Ingoing access list is 180
+  Outgoing access list is not set
+
+R1# show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0.10      10.10.10.1      YES manual up                    up
+Serial0/0/0                203.0.113.1     YES manual up                    up

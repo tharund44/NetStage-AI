@@ -1,0 +1,20 @@
+# Captured Configuration / Evidence
+
+R1# show ip dhcp pool
+
+Pool VLAN10-POOL :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0
+ Total addresses                : 254
+ Leased addresses               : 5
+ Pending event                  : none
+ 1 subnet is currently in the pool :
+ Current index        IP address range                    Leased addresses
+ 10.10.20.6           10.10.20.1       - 10.10.20.254    5
+
+R1# show running-config | section dhcp
+ip dhcp pool VLAN10-POOL
+ network 10.10.20.0 255.255.255.0
+ default-router 10.10.10.1
+ dns-server 10.10.10.5
+ip dhcp excluded-address 10.10.20.1 10.10.20.5

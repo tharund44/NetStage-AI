@@ -1,0 +1,18 @@
+# Captured Configuration / Evidence
+
+R1# show access-lists
+Extended IP access list 150
+    10 permit tcp any host 10.10.30.10 eq 80 (0 matches)
+    20 permit tcp any host 10.10.30.10 eq 443 (0 matches)
+    30 permit icmp any any (45 matches)
+    40 deny   ip any any (1280 matches)
+
+R1# show ip interface GigabitEthernet0/0.30
+GigabitEthernet0/0.30 is up, line protocol is up
+  Ingoing access list is not set
+  Outgoing access list is 150
+
+R1# show ip interface Serial0/0/0
+Serial0/0/0 is up, line protocol is up
+  Ingoing access list is not set
+  Outgoing access list is not set

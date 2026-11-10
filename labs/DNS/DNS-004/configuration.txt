@@ -1,0 +1,21 @@
+# Captured Configuration / Evidence
+
+SW1# show interfaces Fa0/20 status
+Port      Name       Status       Vlan       Duplex  Speed Type
+Fa0/20    DNS-SRV    connected    10         a-full  a-100 10/100BaseTX
+
+SW1# show vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+10   Sales                            active    Fa0/1, Fa0/2, Fa0/3, Fa0/20
+
+R1# show arp
+Protocol  Address          Age (min)  Hardware Addr   Type   Interface
+Internet  10.10.10.1              -   0019.aa6b.3401  ARPA   Gi0/0.10
+Internet  10.10.10.11             8   00d0.ba12.3401  ARPA   Gi0/0.10
+Internet  10.10.10.5              0   Incomplete      ARPA   Gi0/0.10
+
+C:\> ping 10.10.10.5
+Request timed out.
+Request timed out.
